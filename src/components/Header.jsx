@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom"
+import { Link,NavLink } from "react-router-dom"
 
 export default function Header() {
   return (
@@ -9,15 +9,15 @@ export default function Header() {
 
       <nav className="space-x-8 text-base font-medium text-gray-700">
 
-          <Link to="/host" className="hover:text-black">
+          <NavLink to="/host" className={({isActive})=> isActive? "underline font-bold text-[#161616]":"hover:text-black"}>
           Host
-        </Link>
-        <Link to="/about" className="hover:text-black">
+        </NavLink>
+        <NavLink to="/about" className={({isActive})=>isActive?"underline font-bold text-[#161616]":"hover:text-black"}>
           About
-        </Link>
-        <Link to="/vans" className="hover:text-black">
+        </NavLink>
+        <NavLink to="/vans" className={({isActive})=>isActive?"underline font-bold text-[#161616]":"hover:text-black"}>
           Vans
-        </Link>
+        </NavLink>
       </nav>
     </header>
   )

@@ -8,6 +8,10 @@ export default function Header() {
       </Link>
 
       <nav className="space-x-8 text-base font-medium text-gray-700">
+
+          <Link to="/host" className="hover:text-black">
+          Host
+        </Link>
         <Link to="/about" className="hover:text-black">
           About
         </Link>

@@ -1,15 +1,10 @@
-import aboutImg from "../assets/images/pic1.png"
-import { Link } from "react-router-dom"
+import aboutImg from "../assets/images/pic1.png";
+import { Link } from "react-router-dom";
 
 export default function About() {
   return (
     <div className="w-full">
-
-      <img
-        src={aboutImg}
-        alt=""
-        className="w-full h-96 object-cover"
-      />
+      <img src={aboutImg} alt="" className="w-full h-96 object-cover" />
 
       <section className="px-12 py-16 max-w-5xl">
         <h1 className="text-4xl font-bold mb-6">
@@ -17,9 +12,9 @@ export default function About() {
         </h1>
 
         <p className="text-lg text-gray-700 mb-6">
-          Our mission is to enliven your road trip with the perfect travel van rental.
-          Our vans are recertified before each trip to ensure your travel plans
-          go off without a hitch.
+          Our mission is to enliven your road trip with the perfect travel van
+          rental. Our vans are recertified before each trip to ensure your
+          travel plans go off without a hitch.
         </p>
 
         <p className="text-lg text-gray-700">
@@ -44,7 +39,6 @@ export default function About() {
           </Link>
         </div>
       </section>
-
     </div>
-  )
+  );
 }

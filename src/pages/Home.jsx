@@ -1,5 +1,5 @@
-import heroImg from "../assets/images/pic1.png"
-import { Link } from "react-router-dom"
+import heroImg from "../assets/images/pic1.png";
+import { Link } from "react-router-dom";
 
 export default function Home() {
   return (
@@ -18,8 +18,8 @@ export default function Home() {
         </h1>
 
         <p className="text-lg mb-10">
-          Add adventure to your life by joining the #vanlife movement.
-          Rent the perfect van for your perfect road trip.
+          Add adventure to your life by joining the #vanlife movement. Rent the
+          perfect van for your perfect road trip.
         </p>
 
         <Link
@@ -30,5 +30,5 @@ export default function Home() {
         </Link>
       </div>
     </section>
-  )
+  );
 }

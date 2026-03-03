@@ -1,9 +1,14 @@
 import React from 'react'
+import { Outlet } from 'react-router-dom'
+import Header from './Header'
+import Footer from './Footer'
 
 function Layout() {
   return (
      <>
-            <h1>we are in layout page</h1>
+            <Header/>
+            <Outlet/>
+            {/* <Footer/> */}
      </>
   )
 }

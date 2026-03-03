@@ -1,11 +1,13 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import About from "./pages/About";
-import Header from "./components/Header";
-import Footer from "./pages/Footer";
 import Vans from "./pages/Vans";
 import VanDetails from "./pages/VanDetails";
 import Layout from "./components/Layout";
+import Dashboard from"./pages/host/Dashboard"
+import Reviews from"./pages/host/Reviews"
+import Income from"./pages/host/Income"
+import HostLayout from "./components/HostLayout";
 
 function App() {
   return (
@@ -19,11 +21,17 @@ function App() {
                <Route path="/about" element={<About />} />
                <Route path="/vans" element={<Vans />} />
                <Route path="/vanDetails/:id" element={<VanDetails />} />
+
+               
+
+                 <Route element={<HostLayout/>} >
+                   <Route path="/host" element={<Dashboard />} />
+                   <Route path="/host/income" element={<Income/>}/>
+                   <Route path="/host/reviews" element={<Reviews/>}/>
+                 </Route>  
             </Route>
           </Routes>
         </main>
-
-        <Footer />
       </div>
     </BrowserRouter>
   );

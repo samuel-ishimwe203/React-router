@@ -1,13 +1,15 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import About from "./pages/About";
-import Vans from "./pages/Vans";
-import VanDetails from "./pages/VanDetails";
+import Vans from "./pages/vans/Vans";
+import VanDetails from "./pages/vans/VanDetails";
 import Layout from "./components/Layout";
 import Dashboard from "./pages/host/Dashboard";
 import Reviews from "./pages/host/Reviews";
 import Income from "./pages/host/Income";
 import HostLayout from "./components/HostLayout";
+import HostVansDetails from "./pages/host/HostVansDetails";
+import HostVans from "./pages/host/HostVans";
 
 function App() {
   return (
@@ -25,6 +27,8 @@ function App() {
                 <Route index element={<Dashboard />} />
                 <Route path="income" element={<Income />} />
                 <Route path="reviews" element={<Reviews />} />
+                   <Route path="vans" element={<HostVans/>} />
+                   <Route path="vans/:id" element={<HostVansDetails/>} />
               </Route>
             </Route>
           </Routes>

@@ -39,33 +39,33 @@ export default function Vans() {
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
         <div className="flex flex-wrap">
-          <Link
+          <button onClick={()=>setSearchParams({type:'simple'})}
             to="?type=simple"
             className="h-8 px-6 py-1 font-medium rounded-md bg-[#FFEAD0] text-[#4D4D4D] hover:bg-[#E17654] hover:text-[#FFEAD0] transition-colors duration-200"
           >
             Simple
-          </Link>
+          </button>
 
-          <Link
+          <button onClick={()=>setSearchParams({type:'luxury'})}
             to="?type=luxury"
             className="h-8 px-6 py-1 font-medium rounded-md bg-[#FFEAD0] text-[#4D4D4D] hover:bg-[#161616] hover:text-[#FFEAD0] transition-colors duration-200 ml-4"
           >
             Luxury
-          </Link>
-
-          <Link
+          </button>
+ onClick={()=>setSearchParams({type:''})}
+          <button onClick={()=>setSearchParams({type:'rugged'})}
             to="?type=rugged"
             className="h-8 px-6 py-1 font-medium rounded-md bg-[#FFEAD0] text-[#4D4D4D] hover:bg-[#115E59] hover:text-[#FFEAD0] transition-colors duration-200 ml-4"
           >
             Rugged
-          </Link>
+          </button>
 
-          <Link
+          <button onClick={()=>setSearchParams({type:{}})}
             to="."
             className="h-8 px-6 py-1 font-medium rounded-md bg-transparent text-[#4D4D4D] underline ml-[-5] transition-colors duration-200"
           >
             Clear filter
-          </Link>
+          </button>
         </div>
 
         {displayedvanMap}

@@ -16,21 +16,21 @@ function HostLayout() {
 
         <NavLink
           end
-          to="/host/income"
+          to="income"
           className={({ isActive }) =>` ${style} ${isActive ? "underline font-semibold text-[#161616]" : ""}`} >
            Income
          </NavLink>
 
         <NavLink
           end
-           to="/host/vans"
+           to="vans"
           className={({ isActive }) =>` ${style} ${isActive ? "underline font-semibold text-[#161616]" : ""}`} >
           Vans
          </NavLink>
 
         <NavLink
           end
-           to="/host/reviews"
+           to="reviews"
           className={({ isActive }) =>` ${style} ${isActive ? "underline font-semibold text-[#161616]" : ""}`} >
          Reviews
          </NavLink>

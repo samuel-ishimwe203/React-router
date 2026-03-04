@@ -57,14 +57,44 @@ export default function HostVanDetail() {
           </div>
         </div>
       </div>
-         
-          <nav className="host-van-detail-nav">
-                 <NavLink end to="." className={({isActive})=>isActive?"underline font-bold text-[#161616]":"hover:text-black"}>Details</NavLink>
-                 <NavLink to="pricing" className={({isActive})=>isActive?"underline font-bold text-[#161616]":"hover:text-black"}>Pricing</NavLink>
-                 <NavLink end to="photos" className={({isActive})=>isActive?"underline font-bold text-[#161616]":"hover:text-black"}>Photos</NavLink>
-                </nav>
-    
-       <Outlet context={{currentVan}}/>
+
+      <nav className="flex gap-6 my-6">
+        <NavLink
+          end
+          to="."
+          className={({ isActive }) =>
+            isActive
+              ? "underline font-bold text-[#161616]"
+              : "text-[#4D4D4D] font-medium hover:text-black hover:underline"
+          }
+        >
+          Details
+        </NavLink>
+
+        <NavLink
+          to="pricing"
+          className={({ isActive }) =>
+            isActive
+              ? "underline font-bold text-[#161616]"
+              : "text-[#4D4D4D] font-medium hover:text-black hover:underline"
+          }
+        >
+          Pricing
+        </NavLink>
+
+        <NavLink
+          to="photos"
+          className={({ isActive }) =>
+            isActive
+              ? "underline font-bold text-[#161616]"
+              : "text-[#4D4D4D] font-medium hover:text-black hover:underline"
+          }
+        >
+          Photos
+        </NavLink>
+      </nav>
+
+      <Outlet context={{ currentVan }} />
     </section>
   );
 }

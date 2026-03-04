@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams,Link } from "react-router-dom";
 
 export default function VanDetail() {
   const params = useParams();
@@ -13,6 +13,16 @@ export default function VanDetail() {
 
   return (
     <div className="p-[27px] m-32">
+
+       <Link
+            to="."
+            relative="path"
+            className="block text-black mt-[40px] ml-[26px] pb-10"
+        >
+
+        &larr; <span className="hover:underline">Back to all vans</span> 
+        
+      </Link>
       {van ? (
         <div className="flex flex-col text-[#161616]">
           <img

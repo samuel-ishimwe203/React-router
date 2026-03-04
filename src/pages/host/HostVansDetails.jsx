@@ -57,7 +57,12 @@ export default function HostVanDetail() {
           </div>
         </div>
       </div>
-
+         
+          <nav className="host-van-detail-nav">
+                 <NavLink end to="">Details</NavLink>
+                 <NavLink to="pricing">Pricing</NavLink>
+                 <NavLink end to="photos">Photos</NavLink>
+                </nav>
     
        <Outlet/>
     </section>

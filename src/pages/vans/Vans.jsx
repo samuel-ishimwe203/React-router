@@ -52,7 +52,7 @@ export default function Vans() {
           >
             Luxury
           </button>
- onClick={()=>setSearchParams({type:''})}
+             
           <button onClick={()=>setSearchParams({type:'rugged'})}
             to="?type=rugged"
             className="h-8 px-6 py-1 font-medium rounded-md bg-[#FFEAD0] text-[#4D4D4D] hover:bg-[#115E59] hover:text-[#FFEAD0] transition-colors duration-200 ml-4"
@@ -60,12 +60,12 @@ export default function Vans() {
             Rugged
           </button>
 
-          <button onClick={()=>setSearchParams({type:{}})}
+       { filterType? (  <button onClick={()=>setSearchParams({})}
             to="."
             className="h-8 px-6 py-1 font-medium rounded-md bg-transparent text-[#4D4D4D] underline ml-[-5] transition-colors duration-200"
           >
             Clear filter
-          </button>
+          </button>):null}
         </div>
 
         {displayedvanMap}

@@ -59,12 +59,12 @@ export default function HostVanDetail() {
       </div>
          
           <nav className="host-van-detail-nav">
-                 <NavLink end to="">Details</NavLink>
-                 <NavLink to="pricing">Pricing</NavLink>
-                 <NavLink end to="photos">Photos</NavLink>
+                 <NavLink end to="." className={({isActive})=>isActive?"underline font-bold text-[#161616]":"hover:text-black"}>Details</NavLink>
+                 <NavLink to="pricing" className={({isActive})=>isActive?"underline font-bold text-[#161616]":"hover:text-black"}>Pricing</NavLink>
+                 <NavLink end to="photos" className={({isActive})=>isActive?"underline font-bold text-[#161616]":"hover:text-black"}>Photos</NavLink>
                 </nav>
     
-       <Outlet/>
+       <Outlet context={{currentVan}}/>
     </section>
   );
 }

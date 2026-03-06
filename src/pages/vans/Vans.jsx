@@ -56,7 +56,7 @@ export default function Vans() {
           onClick={() => handleFilterChange("type", null)}
           className="block mt-[40px] ml-[26px] pb-10 py-1 font-medium underline text-[#4D4D4D]"
         >
-          &larr; <span className="hover:underline">Backz to all vans</span>
+          &larr; <span className="hover:underline">Back to all vans</span>
         </Link>
       )}
 

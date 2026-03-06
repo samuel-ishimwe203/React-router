@@ -1,13 +1,26 @@
 import { useEffect, useState } from "react";
-import { useSearchParams, useLocation, Link } from "react-router-dom";
+import { useSearchParams, useLocation, Link ,useLoaderData} from "react-router-dom";
 import  getVans from "../../api";
+
+
+export function loader(){
+  return getVans()
+}
+
+
 
 export default function Vans() {
   const [vans, setVans] = useState([]);
   const [searchParams, setSearchParams] = useSearchParams();
   const [loading, setLoading] = useState(false);
   const [error, setError]=useState(null)
+
+
+  const data=useLoaderData()
+  console.log(data)
   const location = useLocation();
+
+  
 
   const filterType = searchParams.get("type");
 

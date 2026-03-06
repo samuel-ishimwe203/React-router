@@ -11,11 +11,13 @@ export default function VanDetail() {
       .then((data) => setVan(data.vans));
   }, [params.id]);
 
+  const search= location.state?.search||""
+
   return (
     <div className="p-[27px] m-32">
 
        <Link
-            to="."
+            to={`${search}`}
             relative="path"
             className="block text-black mt-[40px] ml-[26px] pb-10"
         >

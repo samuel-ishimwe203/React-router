@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useSearchParams, useLocation, Link ,useLoaderData} from "react-router-dom";
 import  getVans from "../../api";
 
@@ -10,39 +10,17 @@ export function loader(){
 
 
 export default function Vans() {
-  const [vans, setVans] = useState([]);
   const [searchParams, setSearchParams] = useSearchParams();
-  const [loading, setLoading] = useState(false);
   const [error, setError]=useState(null)
 
 
-  const data=useLoaderData()
-  console.log(data)
+  const vans=useLoaderData()
+  console.log(vans)
   const location = useLocation();
 
   
 
   const filterType = searchParams.get("type");
-
-  useEffect(() => {
-    async function loadVans() {
-      setLoading(true);
-
-      try {
-      const data = await getVans();
-      setVans(data);
-        
-      } catch (error) {
-        setError(error)
-        
-      } finally{
-        setLoading(false);
-      }
-      
-      
-    }
-    loadVans();
-  }, []);
 
   function handleFilterChange(key, value) {
     setSearchParams((prevParams) => {
@@ -61,9 +39,7 @@ export default function Vans() {
   const baseButtonClasses =
     "h-8 px-6 py-1 font-medium rounded-md transition-colors duration-200";
 
-  if (loading) {
-    return <h1>Loading...</h1>;
-  }
+
 
  if(error){
     return <h1>There was an error: {error.message}</h1>

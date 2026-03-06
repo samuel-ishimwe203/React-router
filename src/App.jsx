@@ -4,56 +4,73 @@ import {
   createRoutesFromElements,
   Route,
 } from "react-router-dom";
+
 import Home from "./pages/Home";
 import About from "./pages/About";
-import Vans ,{loader as vansLoader} from "./pages/vans/Vans";
+import Vans, { loader as vansLoader } from "./pages/vans/Vans";
 import VanDetails from "./pages/vans/VanDetails";
+
 import Layout from "./components/Layout";
+
 import Dashboard from "./pages/host/Dashboard";
 import Reviews from "./pages/host/Reviews";
 import Income from "./pages/host/Income";
+
 import HostLayout from "./components/HostLayout";
+
 import HostVansDetails from "./pages/host/HostVansDetails";
 import HostVans from "./pages/host/HostVans";
 import HostVanPricing from "./pages/host/HostVanPricing";
 import HostVanPhotoes from "./pages/host/HostVanPhotoes";
 import HostVanInfo from "./pages/host/HostVanInfo";
-import NotFound from "./pages/NotFound";
 
+import NotFound from "./pages/NotFound";
 
 function App() {
   const router = createBrowserRouter(
     createRoutesFromElements(
-      <Route path="/" element={<Layout />}>
+      <Route
+        path="/"
+        element={<Layout />}
+        hydrateFallbackElement={<h1>Loading...</h1>}
+      >
         <Route index element={<Home />} />
+
         <Route path="about" element={<About />} />
-        <Route path="vans" element={<Vans />} loader={vansLoader}/>
+
+        <Route path="vans" element={<Vans />} loader={vansLoader} />
+
         <Route path="vanDetails/:id" element={<VanDetails />} />
 
         <Route path="host" element={<HostLayout />}>
           <Route index element={<Dashboard />} />
+
           <Route path="income" element={<Income />} />
+
           <Route path="reviews" element={<Reviews />} />
+
           <Route path="vans" element={<HostVans />} />
 
           <Route path="vans/:id" element={<HostVansDetails />}>
             <Route index element={<HostVanInfo />} />
+
             <Route path="pricing" element={<HostVanPricing />} />
+
             <Route path="photos" element={<HostVanPhotoes />} />
           </Route>
         </Route>
+
         <Route path="*" element={<NotFound />} />
-      </Route>,
-    ),
+      </Route>
+    )
   );
+
   return (
-    
-      <div className="min-h-screen w-full flex flex-col bg-[#e8ded3]">
-        <main className="flex-1 w-full">
-           <RouterProvider router={router} />
-        </main>
-      </div>
-   
+    <div className="min-h-screen w-full flex flex-col bg-[#e8ded3]">
+      <main className="flex-1 w-full">
+        <RouterProvider router={router} />
+      </main>
+    </div>
   );
 }
 

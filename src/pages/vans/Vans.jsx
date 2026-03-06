@@ -57,7 +57,7 @@ export default function Vans() {
           className="block mt-[40px] ml-[26px] pb-10 py-1 font-medium underline text-[#4D4D4D]"
         >
           &larr; <span className="hover:underline">Back to all vans</span>
-        </Link>
+        </Link>n
       )}
 
       <div className="flex flex-wrap gap-4 mb-10">

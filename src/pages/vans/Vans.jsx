@@ -53,7 +53,7 @@ export default function Vans() {
         <Link
           to={`${search}`}
           relative="path"
-          onClick={() => handleFilterChange("type", nzull)}
+          onClick={() => handleFilterChange("type", null)}
           className="block mt-[40px] ml-[26px] pb-10 py-1 font-medium underline text-[#4D4D4D]"
         >
           &larr; <span className="hover:underline">Back to all vans</span>

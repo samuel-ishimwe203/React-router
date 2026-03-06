@@ -1,27 +1,45 @@
 import { useEffect, useState } from "react";
-import { useSearchParams, Link } from "react-router-dom";
+import { useSearchParams, useLocation, Link } from "react-router-dom";
+import  getVans from "../../api";
 
 export default function Vans() {
   const [vans, setVans] = useState([]);
   const [searchParams, setSearchParams] = useSearchParams();
+  const [loading, setLoading] = useState(false);
+  const [error, setError]=useState(null)
+  const location = useLocation();
 
   const filterType = searchParams.get("type");
 
   useEffect(() => {
-    fetch("/api/vans")
-      .then((res) => res.json())
-      .then((data) => setVans(data.vans));
+    async function loadVans() {
+      setLoading(true);
+
+      try {
+      const data = await getVans();
+      setVans(data);
+        
+      } catch (error) {
+        setError(error)
+        
+      } finally{
+        setLoading(false);
+      }
+      
+      
+    }
+    loadVans();
   }, []);
 
   function handleFilterChange(key, value) {
     setSearchParams((prevParams) => {
       const newParams = new URLSearchParams(prevParams);
-      value === null
-        ? newParams.delete(key)
-        : newParams.set(key, value);
+      value === null ? newParams.delete(key) : newParams.set(key, value);
       return newParams;
     });
   }
+
+  const search = location.state?.search || "";
 
   const displayedVans = filterType
     ? vans.filter((van) => van.type === filterType)
@@ -30,11 +48,28 @@ export default function Vans() {
   const baseButtonClasses =
     "h-8 px-6 py-1 font-medium rounded-md transition-colors duration-200";
 
+  if (loading) {
+    return <h1>Loading...</h1>;
+  }
+
+ if(error){
+    return <h1>There was an error: {error.message}</h1>
+ }
+
   return (
     <section className="w-full px-12 py-16">
-      <h1 className="text-4xl font-bold mb-10">
-        Explore our van options
-      </h1>
+      <h1 className="text-4xl font-bold mb-10">Explore our van options</h1>
+
+      {filterType && (
+        <Link
+          to={`${search}`}
+          relative="path"
+          onClick={() => handleFilterChange("type", null)}
+          className="block mt-[40px] ml-[26px] pb-10 py-1 font-medium underline text-[#4D4D4D]"
+        >
+          &larr; <span className="hover:underline">Back to all vans</span>
+        </Link>
+      )}
 
       <div className="flex flex-wrap gap-4 mb-10">
         <button
@@ -85,7 +120,7 @@ export default function Vans() {
           <Link
             key={van.id}
             to={van.id}
-            state={{ search:`?${searchParams.toString()}` }}
+            state={{ search: `?${searchParams.toString()}` }}
           >
             <div className="shadow-lg rounded-lg overflow-hidden hover:shadow-xl transition-shadow duration-200">
               <img
@@ -94,12 +129,8 @@ export default function Vans() {
                 className="w-full h-60 object-cover"
               />
               <div className="p-6">
-                <h2 className="text-xl font-semibold mb-2">
-                  {van.name}
-                </h2>
-                <p className="text-gray-600">
-                  ${van.price}/day
-                </p>
+                <h2 className="text-xl font-semibold mb-2">{van.name}</h2>
+                <p className="text-gray-600">${van.price}/day</p>
               </div>
             </div>
           </Link>

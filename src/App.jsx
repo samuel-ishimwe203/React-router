@@ -7,7 +7,7 @@ import {
 
 import Home from "./pages/Home";
 import About from "./pages/About";
-import Vans, { loader as vansLoader }v from "./pages/vans/Vans";
+import Vans, { loader as vansLoader } from "./pages/vans/Vans";
 import VanDetails from "./pages/vans/VanDetails";
 
 import Layout from "./components/Layout";

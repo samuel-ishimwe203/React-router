@@ -1,4 +1,5 @@
 import { Link,NavLink } from "react-router-dom"
+import Urlimge from "../assets/images/pic2.png"
 
 export default function Header() {
   return (
@@ -18,6 +19,10 @@ export default function Header() {
         <NavLink to="/vans" className={({isActive})=>isActive?"underline font-bold text-[#161616]":"hover:text-black"}>
           Vans
         </NavLink>
+
+        <Link className="inline-flex items-center">
+              <img className="w-[18px] h-[18px]" to="login"src={Urlimge} alt="" />
+        </Link>
       </nav>
     </header>
   )

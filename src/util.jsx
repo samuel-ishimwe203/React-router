@@ -4,7 +4,7 @@ export  async function redirectAuth() {
 
     const isLoggedIn = false
 
-    if (!isLoggedIn) {
+    if (!isLoggedjIn) {
         return redirect("/login");
     }
 

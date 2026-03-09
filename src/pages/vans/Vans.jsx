@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useSearchParams, useLocation, Link ,useLoaderData} from "react-router-dom";
-import  getVans from "../../api";
+import  {getVans} from "../../api";
 
 
 export function loader(){
@@ -15,7 +15,7 @@ export default function Vans() {
 
 
   const vans=useLoaderData()
-  console.log(vans)
+
   const location = useLocation();
 
   

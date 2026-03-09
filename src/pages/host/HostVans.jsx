@@ -1,16 +1,18 @@
-import React, { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
+
+import { Link, useLoaderData } from 'react-router-dom'
+
+import { getHostVans} from '../../api'
+
+export function loader({params}){
+
+    return getHostVans(params.id) 
+
+}
+
 
 function HostVans() {
 
-    const [vans, setVans] = useState([])
-
-    useEffect(() => {
-        fetch('/api/host/vans')
-            .then(res => res.json())
-            .then(data => setVans(data.vans))
-    }, [])
-
+    const vans= useLoaderData()
     const hostVansEl = vans.map(van => (
         <Link
             to={van.id}
@@ -45,17 +47,11 @@ function HostVans() {
             </h1>
 
             <div>
-                {
-                    vans.length > 0 ? (
+               
                         <section>
                             {hostVansEl}
                         </section>
-                    ) : (
-                        <h2 className="text-lg font-medium text-gray-500">
-                            Loading...
-                        </h2>
-                    )
-                }
+               
             </div>
         </section>
     )
